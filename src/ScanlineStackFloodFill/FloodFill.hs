@@ -5,7 +5,6 @@ import YamlParser
 
 import Data.List as DL
 import Data.Array
---import Data.Array.Base
 import Data.Array.ST
 import Data.Array.MArray
 import Data.Foldable
