@@ -1,0 +1,106 @@
+name:                flood-fill-diagrams
+version:             0.1.0.0
+github:              "Matthew-Mosior/flood-fill-diagrams"
+license:             BSD3
+author:              "Matthew C. Mosior"
+maintainer:          "mattm.github@gmail.com"
+copyright:           "BSD 3-Clause License"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/Matthew-Mosior/flood-fill-diagrams#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- array
+- bytestring
+- directory
+- aeson
+- diagrams
+- diagrams-lib
+- diagrams-svg
+- massiv
+- mwc-random
+- mtl
+- raw-strings-qq
+- Stack
+- random
+- split
+- stm 
+- text
+- time
+- vector
+- unordered-containers
+- yaml
+
+library:
+  source-dirs: src
+  default-extensions:
+   - AllowAmbiguousTypes
+   - Strict
+   - StrictData
+   - DeriveGeneric
+   - FlexibleContexts
+   - OverloadedStrings  
+   - TypeApplications
+   - TypeFamilies
+   - NoMonomorphismRestriction
+   - PatternSynonyms
+   - MultiWayIf
+   - RankNTypes
+   - RecordWildCards
+   - QuasiQuotes
+   - ViewPatterns
+   - ScopedTypeVariables
+
+executables:
+  flood-fill-diagrams-exe:
+    main:                Main.hs
+    source-dirs:         app
+    default-extensions:
+     - AllowAmbiguousTypes
+     - Strict
+     - StrictData
+     - DeriveGeneric
+     - FlexibleContexts
+     - OverloadedStrings
+     - TypeApplications
+     - TypeFamilies
+     - NoMonomorphismRestriction
+     - MultiWayIf
+     - PatternSynonyms
+     - RankNTypes
+     - RecordWildCards
+     - QuasiQuotes
+     - ViewPatterns
+     - ScopedTypeVariables
+    ghc-options:
+    - -threaded
+    - -O2
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -with-rtsopts=-xn
+    dependencies:
+    - flood-fill-diagrams
+
+tests:
+  flood-fill-diagrams-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -O2
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -with-rtsopts=-xn
+    dependencies:
+    - flood-fill-diagrams
