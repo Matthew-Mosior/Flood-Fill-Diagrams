@@ -75,7 +75,7 @@ floodFillScanlineStack :: ( Eq Int
                           , Num Int 
                           ) => FFConfig -> [(Int,Int,Int,Int)] -> (Int,Int) -> Int -> ST s (STArray s Int (Int,Int,Int,Int)) 
 floodFillScanlineStack config b coords newC = do 
-  rstack <- emptySTStack -- new empty stack  let arraycounteru = arraycounter + 1 holding pixels to fill (running stack) 
+  rstack <- emptySTStack -- new empty stack
   fstack <- newArray (0,(DL.length b) - 1) (-1,-1,-1,-1) -- new empty array to holding final filled grid (final array)
   spans <- newSTRef (False,False) -- keep track of spans in scanWhileX 
   fFSS b rstack fstack coords newC spans -- function loop
