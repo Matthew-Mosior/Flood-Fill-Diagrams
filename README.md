@@ -1,8 +1,8 @@
-# Scanline-Stack-Diagram:  A scanline stack flood-fill algorithm implementation using Haskell
+# Flood-Fill-Diagrams:  A scanline stack flood-fill algorithm implementation using Haskell
 
 ## Introduction
 
-**Scanline-Stack-Diagram** is a software tool for generating 2D grid images the display the underlying scanline-stack flood-fill algorithm used to fill in the blank squares.
+**Flood-Fill-Diagrams** is a software tool for generating 2D grid images the display the underlying scanline-stack flood-fill algorithm used to fill in the blank squares.
 
 ## Purpose
 
