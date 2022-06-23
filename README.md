@@ -1,4 +1,4 @@
-# Flood-Fill-Diagrams:  A scanline stack flood-fill algorithm implementation using Haskell
+# Flood-Fill-Diagrams:  A Haskell scanline stack flood-fill algorithm implementation
 
 ## Introduction
 
