@@ -33,6 +33,29 @@ Generating and printing the final 2D grid visualization into a Scalable Vector G
    - **2** represents a filled squaure.
 3) The initial x-y coordinate is chosen, this coordinate will always be un-filled.
 4) The scanline stack flood-fill algorithm is run on the 2D grid.
+   - **1** represents an un-filled square.
+   - **2** represents a filled square.
+   - **3** represents a square that was previously un-filled, but is now filled due to the scanline stack flood-fill algorithm.
+     - The filling index/order is recorded for these elements as well.
 5) The ST Array is converted into a list for easier use going forward.
 6) The final list holding the coordinates of the scanline stack filled grid is amalgamated with the original un-filled randomly generated 2D grid.
-7) The SVG file is generated from the amalgamated 2D grid via the diagrams library.
+7) The SVG file is generated from the amalgamated 2D grid via the diagrams library, printing the filling index/order for the elements that the scanline stack flood-fill algorithm filled atop the respective squares.
+
+## Configuration YAML
+
+**FFD** utilizes a configuration YAML.
+
+The following keys are **required**:
+
+- ```Output_Path``` -> The filepath to the output SVG file (String)
+- ```Number_of_Rows``` -> The number of rows used to create the randomly generated 2D grid.
+- ```Number_of_Columns``` -> The number of columns used to create the randomly generated 2D grid.
+
+## Example usage
+
+**FFD** is easy to use, as it only requires a single command-line positional argument, the configuation YAML:
+
+```
+% stack exec flood-fill-diagrams-exe /path/to/the/configuration.yaml
+```
+
