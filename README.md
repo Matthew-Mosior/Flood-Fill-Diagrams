@@ -24,7 +24,15 @@ Generating and printing the final 2D grid visualization into a Scalable Vector G
 
 ### Algorithm
 
-1) **FFD** first reads in a configuration YAML file which specifies the following:
+1) **FFD** first reads in and parsed/sanitizes the configuration YAML file which specifies the following:
    - A filepath the output svg file. 
    - The number of columns in the output 2D grid.
    - The number of rows in the output 2D grid.
+2) A 2D grid is randomly generated using the number of columns and number of rows specified in the configuration YAML.
+   - **1** represents an un-filled square.
+   - **2** represents a filled squaure.
+3) The initial x-y coordinate is chosen, this coordinate will always be un-filled.
+4) The scanline stack flood-fill algorithm is run on the 2D grid.
+5) The ST Array is converted into a list for easier use going forward.
+6) The final list holding the coordinates of the scanline stack filled grid is amalgamated with the original un-filled randomly generated 2D grid.
+7) The SVG file is generated from the amalgamated 2D grid via the diagrams library.
