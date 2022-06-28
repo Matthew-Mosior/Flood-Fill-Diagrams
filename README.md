@@ -19,3 +19,7 @@ ST Arrays are mutable boxed and unboxed arrays in the ST monad.  The ST monad is
 Haskell IRC user TuringTest provides a great explanation as to how this works internally (https://wiki.haskell.org/Monad/ST):
 
 "ST lets you implement algorithms that are much more efficient with mutable memory used internally. But the whole "thread" of computation cannot exchange mutable state with the outside world, it can only exchange immutable state."
+
+### Algorithm
+
+1) **FFD** 
