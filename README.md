@@ -20,7 +20,7 @@ Haskell IRC user TuringTest provides a great explanation as to how this works in
 
 "ST lets you implement algorithms that are much more efficient with mutable memory used internally. But the whole "thread" of computation cannot exchange mutable state with the outside world, it can only exchange immutable state."
 
-Generating the 2D grid visualization happens at 
+Generating and printing the final 2D grid visualization into a Scalable Vector Graphics (SVG) file happens via the powerful and easy-to-use Diagrams library (https://hackage.haskell.org/package/diagrams).
 
 ### Algorithm
 
