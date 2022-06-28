@@ -2,7 +2,7 @@
 
 ## Introduction
 
-**Flood-Fill-Diagrams** is a software tool for generating 2D grid images the display the underlying scanline-stack flood-fill algorithm used to fill in the blank squares.
+**Flood-Fill-Diagrams** is a software tool for generating 2D grid images that display the scanline-stack flood-fill algorithm.
 
 ## Purpose
 
