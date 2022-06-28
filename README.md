@@ -2,7 +2,7 @@
 
 ## Introduction
 
-**Flood-Fill-Diagrams (FFD)** is a software tool for generating 2D grid images that display the scanline-stack flood-fill algorithm.
+**Flood-Fill-Diagrams (FFD)** is a software tool for generating 2D grid images that visualizes an functional implementation of the scanline-stack flood-fill algorithm.
 
 ## Purpose
 
