@@ -59,3 +59,8 @@ The following keys are **required**:
 % stack exec flood-fill-diagrams-exe /path/to/the/configuration.yaml
 ```
 
+## Dependency Visualization via Stack Dot
+
+The following is a visualization of the dependency graph for **FFD**:
+
+![alt text](https://github.com/Matthew-Mosior/Flood-Fill-Diagrams/blob/main/dependencies.png)
