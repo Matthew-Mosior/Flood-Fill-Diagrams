@@ -33,7 +33,7 @@ Generating and printing the final 2D grid visualization into a Scalable Vector G
 2) A 2D grid is randomly generated using the number of columns and number of rows specified in the configuration YAML.
    - **1** represents an un-filled square.
    - **2** represents a filled squaure.
-3) The initial x-y coordinate is chosen, this coordinate will always be un-filled.
+3) The initial x-y coordinate is chosen (at random), this coordinate will always be un-filled.
 4) The scanline stack flood-fill algorithm is run on the 2D grid.
    - **1** represents an un-filled square.
    - **2** represents a filled square.
