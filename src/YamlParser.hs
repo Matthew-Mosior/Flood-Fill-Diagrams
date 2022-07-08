@@ -13,7 +13,8 @@ import GHC.Generics
 
 {-Custom YAML input file Datatype and related functions.-}
 
-data FFConfig = FFConfig { outputpath         :: Text
+data FFConfig = FFConfig { outputpathsvg      :: Text
+                         , outputpathgif      :: Text
                          , numrows            :: Int
                          , numcols            :: Int
                          } deriving (Eq,Show,Read)
@@ -23,7 +24,8 @@ instance FromJSON FFConfig where
   parseJSON _          = CA.empty
 
 parseFFConfig v = FFConfig
-  <$> v .: "Output_Path"
+  <$> v .: "Output_Path_SVG"
+  <*> v .: "Output_Path_GIF"
   <*> v .: "Number_of_Rows"
   <*> v .: "Number_of_Columns" 
 

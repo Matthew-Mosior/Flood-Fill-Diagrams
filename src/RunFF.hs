@@ -112,20 +112,42 @@ runFloodFillDiagrams (_,inputfiles) = do
            _ <- SIO.putStrLn ("[" DL.++ (showPrettyZonedTime currenttandd) DL.++ "] "
                                   DL.++ "Converting STArray to list ...")
            let random2dgenfl = DLS.chunksOf (numcols decodedinputyaml)
-                                            (elems random2dgenf) 
+                                            (elems random2dgenf)
            --Combine original randomly generated 2d grid with scanline stack flood fill algorithm result.
            currenttandd <- DTime.getZonedTime
            _ <- SIO.putStrLn ("[" DL.++ (showPrettyZonedTime currenttandd) DL.++ "] "
                                   DL.++ "Amalgamating original random 2D grid with scanline stack flood fill algorithm resultant list ...")
            let final2dgen = amalgamate2DGrid decodedinputyaml
                                              random2dgen 
-                                             random2dgenfl 
-           --Run floodFill on configuration yaml inputs
+                                             random2dgenfl
+           --Combine original randomly generated 2d grid with each individual filled element algorithm result.
+           currenttandd <- DTime.getZonedTime
+           _ <- SIO.putStrLn ("[" DL.++ (showPrettyZonedTime currenttandd) DL.++ "] "
+                                  DL.++ "Extracting filled coordinates from scanline stack flood fill algorithm resultant list ...")
+           let final2dgeni = DL.filter (not . DL.null)                       $
+                             DL.inits                                        $
+                             DL.sortBy (\(_,_,_,d) (_,_,_,h) -> compare d h) $
+                             DL.concat                                       $
+                             DL.filter (\x -> not $ DL.null x)               $
+                             DL.map (DL.filter (\(_,_,c,_) -> c == 3)) final2dgen 
+           --Combine original randomly generated 2d grid with each individual filled element algorithm result.
+           currenttandd <- DTime.getZonedTime
+           _ <- SIO.putStrLn ("[" DL.++ (showPrettyZonedTime currenttandd) DL.++ "] "
+                                  DL.++ "Amalgamating original random 2D grid with each scanline stack flood fill algorithm result element ...")
+           let final2dgengif = amalgamate2DGridE final2dgeni
+                                                 random2dgen
+           --Generate final SVG.
            currenttandd <- DTime.getZonedTime
            _ <- SIO.putStrLn ("[" DL.++ (showPrettyZonedTime currenttandd) DL.++ "] "
                                   DL.++ "Generate final SVG ...")
-           floodFillDiagrams decodedinputyaml
-                             final2dgen
+           floodFillDiagramsSVG decodedinputyaml
+                                final2dgen
+           --Generate final GIF.
+           currenttandd <- DTime.getZonedTime
+           _ <- SIO.putStrLn ("[" DL.++ (showPrettyZonedTime currenttandd) DL.++ "] "
+                                  DL.++ "Generate final GIF ...")
+           floodFillDiagramsGIF decodedinputyaml
+                                final2dgengif
            --Shut down Flood-Fill v0.1.0.0.
            _ <- SIO.putStrLn ("[" DL.++ (showPrettyZonedTime currenttandd) DL.++ "] "
                                   DL.++ "Shutting down Flood-Fill v0.1.0.0 ...")

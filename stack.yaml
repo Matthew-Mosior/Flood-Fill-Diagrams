@@ -23,6 +23,9 @@ resolver:
 extra-deps:
  - Stack-0.4.0@sha256:ada69a23ed9bbaf97260397f6b39b7a1f4e22a11bcac3fe2e8f23f1513f59fd8,1092
 
+extra-include-dirs:
+ - /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/ffi
+
 # User packages to be built.
 # Various formats can be used as shown in the example below.
 #
