@@ -40,14 +40,12 @@ Generating and printing the final 2D grid visualization into a Scalable Vector G
    - **2** represents a filled square.
    - **3** represents a square that was previously un-filled, but is now filled due to the scanline stack flood-fill algorithm.
      - The filling index/order is recorded for these elements as well.
+   - The core of the scanline-stack flood fill algorithm is borrowed from rosetta code:
+     - https://rosettacode.org/wiki/Bitmap/Flood_fill#Haskell
 5) The ST Array is converted into a list for easier use going forward.
 6) The final list holding the coordinates of the scanline stack filled grid is amalgamated with the original un-filled randomly generated 2D grid.
 7) The SVG file is generated from the amalgamated 2D grid via the diagrams library, printing the filling index/order for the elements that the scanline stack flood-fill algorithm filled atop the respective squares.
 8) The GIF file is generated from a similarity amalgamated 2D grid via the diagrams library, displaying the filling order/index atop the squares in a sequential animation.
-
-  The core of the scanline-stack flood fill algorithm is borrowed from rosetta code:
-
-  https://rosettacode.org/wiki/Bitmap/Flood_fill#Haskell
 
 ## Configuration YAML
 
