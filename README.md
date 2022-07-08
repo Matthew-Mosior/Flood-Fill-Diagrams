@@ -2,7 +2,7 @@
 
 ## Introduction
 
-**Flood-Fill-Diagrams (FFD)** is a software tool for generating 2D grid images that visualizes a functional implementation of the scanline stack flood-fill algorithm.
+**Flood-Fill-Diagrams (FFD)** is a software tool for generating 2D grid images/gifs that visualizes a functional implementation of the scanline stack flood-fill algorithm.
 
 ## Purpose
 
@@ -22,7 +22,7 @@ Haskell IRC user TuringTest provides a great explanation as to how this works in
 
 "ST lets you implement algorithms that are much more efficient with mutable memory used internally. But the whole "thread" of computation cannot exchange mutable state with the outside world, it can only exchange immutable state."
 
-Generating and printing the final 2D grid visualization into a Scalable Vector Graphics (SVG) file happens via functionality provided by the powerful and easy-to-use Diagrams library (https://hackage.haskell.org/package/diagrams).
+Generating and printing the final 2D grid visualization into a Scalable Vector Graphics (SVG) file and a GIF file happens via functionality provided by the powerful and easy-to-use Diagrams library (https://hackage.haskell.org/package/diagrams).
 
 ### Algorithm
 
@@ -43,6 +43,7 @@ Generating and printing the final 2D grid visualization into a Scalable Vector G
 5) The ST Array is converted into a list for easier use going forward.
 6) The final list holding the coordinates of the scanline stack filled grid is amalgamated with the original un-filled randomly generated 2D grid.
 7) The SVG file is generated from the amalgamated 2D grid via the diagrams library, printing the filling index/order for the elements that the scanline stack flood-fill algorithm filled atop the respective squares.
+8) The GIF file is generated from a similarity amalgamated 2D grid via the diagrams library, displaying the filling order/index atop the squares in a sequential animation.
 
 ## Configuration YAML
 
@@ -50,7 +51,8 @@ Generating and printing the final 2D grid visualization into a Scalable Vector G
 
 The following keys are **required**:
 
-- ```Output_Path``` -> The filepath to the output SVG file (String)
+- ```Output_Path_SVG``` -> The filepath to the output SVG file (String)
+- ```Output_Path_GIF``` -> The filepath to the output GIF file (String)
 - ```Number_of_Rows``` -> The number of rows used to create the randomly generated 2D grid.
 - ```Number_of_Columns``` -> The number of columns used to create the randomly generated 2D grid.
 
