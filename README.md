@@ -58,10 +58,34 @@ The following keys are **required**:
 
 ## Example usage
 
+To build **FFD**, do like you would any other Haskell stack project:
+
+```
+% stack build
+```
+
+On a M1 mac:
+
+```
+% stack --arch aarch64 build
+```
+
+If you are not on a aarch64 system (M1 mac), then you probably wont need this line in the `stack.yaml` file:
+
+```
+
+```
+
 **FFD** is easy to use, as it only requires a single command-line positional argument, the configuation YAML:
 
 ```
 % stack exec flood-fill-diagrams-exe /path/to/the/configuration.yaml
+```
+
+On a M1 mac:
+
+```
+% stack exec --arch aarch64 flood-fill-diagrams-exe /path/to/the/configuration.yaml
 ```
 
 ## Dependency Visualization via Stack Dot
