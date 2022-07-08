@@ -27,7 +27,8 @@ Generating and printing the final 2D grid visualization into a Scalable Vector G
 ### Algorithm
 
 1) **FFD** first reads in and parses/sanitizes the configuration YAML file which specifies the following:
-   - A filepath the output svg file. 
+   - A filepath to the output svg file.
+   - A filepath to the output gif file.
    - The number of columns in the output 2D grid.
    - The number of rows in the output 2D grid.
 2) A 2D grid is randomly generated using the number of columns and number of rows specified in the configuration YAML.
