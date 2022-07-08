@@ -61,6 +61,7 @@ library
     , bytestring
     , diagrams
     , diagrams-lib
+    , diagrams-rasterific
     , diagrams-svg
     , directory
     , massiv
@@ -109,6 +110,7 @@ executable flood-fill-diagrams-exe
     , bytestring
     , diagrams
     , diagrams-lib
+    , diagrams-rasterific
     , diagrams-svg
     , directory
     , flood-fill-diagrams
@@ -142,6 +144,7 @@ test-suite flood-fill-diagrams-test
     , bytestring
     , diagrams
     , diagrams-lib
+    , diagrams-rasterific
     , diagrams-svg
     , directory
     , flood-fill-diagrams

@@ -15,6 +15,8 @@ import Diagrams.TwoD.Text
 import Diagrams.TwoD.Types
 import Diagrams.Size
 import Diagrams.Backend.SVG
+import Diagrams.Backend.Rasterific.CmdLine
+import Diagrams.Backend.Rasterific
 import System.IO as SIO
 import System.Random.MWC
 
@@ -38,8 +40,10 @@ grid2DSquare (c,d) = if | c == 3
                             lw thin       #
                             fc midnightblue
 
-grid2D :: Square -> [[(Int,Int,Int,Int)]] -> Diagram B
-grid2D (x,y) v = do 
+grid2DSVG :: Square 
+          -> [[(Int,Int,Int,Int)]]
+          -> Diagram Diagrams.Backend.SVG.B
+grid2DSVG (x,y) v = do 
   frame <> lattice
     where tolistvf        = DL.map (DL.map (\(_,_,c,d) -> (c,d))) v
           lattice         = centerXY    .
@@ -49,11 +53,47 @@ grid2D (x,y) v = do
           frame           = rect (fromIntegral y) (fromIntegral x)
                             # lw thick 
 
-floodFillDiagrams :: FFConfig -> [[(Int,Int,Int,Int)]] -> IO () 
-floodFillDiagrams config random2dgenl = do
-  let example2dgrid = frame 10 $ grid2D (numrows config,numcols config)
-                                        random2dgenl
-  renderSVG (DText.unpack $ 
-             outputpath config) 
+floodFillDiagramsSVG :: FFConfig
+                     -> [[(Int,Int,Int,Int)]]
+                     -> IO ()
+floodFillDiagramsSVG config random2dgenl = do
+  let svg = frame 10 $ grid2DSVG (numrows config,numcols config)
+                                 random2dgenl
+  renderSVG (DText.unpack $
+            outputpathsvg config)
             (dims $ V2 1000 1000)
-            example2dgrid
+            svg
+
+grid2DGIFSmall :: Square
+               -> [[(Int,Int,Int,Int)]]
+               -> Diagram Diagrams.Backend.Rasterific.B
+grid2DGIFSmall (x,y) v = do
+  frame <> lattice
+    where tolistvf        = DL.map (DL.map (\(_,_,c,d) -> (c,d))) v
+          lattice         = centerXY    .
+                            vcat        .
+                            DL.map hcat .
+                            (DL.map . DL.map) grid2DSquare $ tolistvf
+          frame           = rect (fromIntegral y) (fromIntegral x)
+                            # lw thick 
+
+grid2DGIF :: Square
+          -> [[[(Int,Int,Int,Int)]]]
+          -> [Diagram Diagrams.Backend.Rasterific.B]
+grid2DGIF _     []     = []
+grid2DGIF (x,y) (v:vs) =
+  grid2DGIFSmall (x,y) v :
+  grid2DGIF (x,y) vs
+
+floodFillDiagramsGIF :: FFConfig
+                     -> [[[(Int,Int,Int,Int)]]]
+                     -> IO ()
+floodFillDiagramsGIF config random2dgengif = do
+  let gif = grid2DGIF (numrows config,numcols config)
+                      random2dgengif
+  animatedGif (DText.unpack $
+              outputpathgif config)
+              (dims $ V2 500 500)
+              LoopingForever
+              100
+              gif

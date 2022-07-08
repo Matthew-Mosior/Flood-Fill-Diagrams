@@ -28,6 +28,7 @@ dependencies:
 - diagrams
 - diagrams-lib
 - diagrams-svg
+- diagrams-rasterific
 - massiv
 - mwc-random
 - mtl

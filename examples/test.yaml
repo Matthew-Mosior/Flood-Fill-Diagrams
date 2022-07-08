@@ -1,4 +1,5 @@
 ---
- Output_Path: "/path/to/output/svg"
+ Output_Path_SVG: "/Users/matthewmosior/Software/local/haskell/vulkan-stuff/doom/flood-fill-algo/examples/grid.svg"
+ Output_Path_GIF: "/Users/matthewmosior/Software/local/haskell/vulkan-stuff/doom/flood-fill-algo/examples/grid.gif"
  Number_of_Rows: 10
  Number_of_Columns: 10
