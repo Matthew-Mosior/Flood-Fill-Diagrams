@@ -70,10 +70,11 @@ On a M1 mac:
 % stack --arch aarch64 build
 ```
 
-If you are not on a aarch64 system (M1 mac), then you probably wont need this line in the `stack.yaml` file:
+If you are not on a aarch64 system (M1 mac), then you probably wont need these lines in the `stack.yaml` file:
 
 ```
-
+extra-include-dirs:
+ - /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/ffi
 ```
 
 **FFD** is easy to use, as it only requires a single command-line positional argument, the configuation YAML:
