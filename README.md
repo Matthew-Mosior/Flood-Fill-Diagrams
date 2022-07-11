@@ -14,6 +14,8 @@ Flood-fill algorithms are used heavily in graphics programming and painting prog
 
 Implementing an efficient scanline stack based flood-fill algorithm would be an interesting way to apply Haskell to this problem domain, and see what kind of performance is achievable using a purely functional language.
 
+Furthermore, visualization of the step-by-step progress the algorithm takes to complete the flood-fill would be cool to see!
+
 ## Theory and Implementation
 
 **FFD** seeks to maximize performance of the scanline stack flood fill algorithm employed by utilizing ST Arrays (https://hackage.haskell.org/package/array-0.5.4.0/docs/Data-Array-ST.html).
