@@ -1,5 +1,7 @@
 # Flood-Fill-Diagrams:  A Haskell scanline stack flood-fill algorithm implementation
 
+![Alt Text](https://github.com/Matthew-Mosior/Flood-Fill-Diagrams/blob/main/examples/grid.gif)
+
 ## Introduction
 
 **Flood-Fill-Diagrams (FFD)** is a software tool for generating 2D grid images/gifs that visualizes a functional implementation of the scanline stack flood-fill algorithm.
