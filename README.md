@@ -1,6 +1,8 @@
 # Flood-Fill-Diagrams:  A Haskell scanline stack flood-fill algorithm implementation
 
-![Alt Text](https://github.com/Matthew-Mosior/Flood-Fill-Diagrams/blob/main/examples/grid.gif)
+<p align="center">
+  <img src="https://github.com/Matthew-Mosior/Flood-Fill-Diagrams/blob/main/examples/grid.gif" alt="animated" />
+</p>
 
 ## Introduction
 
