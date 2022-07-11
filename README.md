@@ -1,4 +1,4 @@
-# Flood-Fill-Diagrams:  A Haskell scanline stack flood-fill implementation
+# Flood-Fill-Diagrams:<br>A Haskell scanline stack flood-fill implementation
 
 <p align="center">
   <img src="https://github.com/Matthew-Mosior/Flood-Fill-Diagrams/blob/main/examples/grid.gif" alt="animated" />
