@@ -41,7 +41,7 @@ Generating and printing the final 2D grid visualization into a Scalable Vector G
    - **1** represents an un-filled square.
    - **2** represents a filled squaure.
 3) The initial x-y coordinate is chosen (at random), this coordinate will always be un-filled.
-   - This is represented as **0** (zeroth fill index) in the output SVG grid.
+   - This is represented as **0** (zeroth fill index) in the output SVG/GIF grid.
 4) The scanline stack flood-fill algorithm is run on the 2D grid.
    - **1** represents an un-filled square.
    - **2** represents a filled square.
